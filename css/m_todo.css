@@ -1,0 +1,105 @@
+* { padding: 0; margin: 0; font-family: Helvetica; }
+a { text-decoration: none; }
+div.containter { width: 100%; height: 100%; }
+button { 
+    margin-top: -32px;
+    background-color: #4A6C9B;
+    border: 1px solid #666;
+    color: #fff;
+    padding: 3px 5px 3px 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    font-size: 11pt;
+    text-transform: capitalize;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+header {
+    background: url(../images/toolbar.png) repeat-x;  
+}
+
+header h1 { 
+    background: url(../images/toolbar.png) repeat-x;  
+    color: white; text-align: left;
+    text-indent: 0.4em;
+	font-size: 17pt;
+	LINE-HEIGHT: 40px;
+}
+
+header button { position: absolute; }
+header button.history {  right: 6px; background-color: pink; color: red; }
+header button.add { right: 75px; }
+header button.list { right: 123px; }
+
+article.todo ol, footer ol { margin-top: 5px; }
+
+footer ol li,
+article.todo ol li { 
+    margin-top: 5px; 
+    border-bottom: 1px solid #ddd;
+    line-height: 250%;
+    text-indent: 0.5em;
+    cursor: pointer;
+}
+article.todo ol li.history { background-color: red; } 
+
+article.todo ol li span.time {
+    position: absolute;
+    right: 6px;
+    color: #666666;
+    font-size: 9pt;
+}
+
+footer {
+    z-index: 10;
+    background-color: #fff;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+footer h2 { 
+    text-align: left;
+    text-indent: 0.2em;
+    margin-top: 10px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+
+div.notice { 
+    background-color: #E76EFE;
+    text-align: center;
+    padding: 5px 5px 5px 5px;
+    width: 100px;
+    height: 21px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    font-weight: bolder;
+    text-transform: capitalize;
+}
+
+div.add { margin: 0 auto; text-align: center; }
+div.add textarea { 
+	width: 95%; height: 150px;
+	text-align: left;
+}
+div.add span.time {
+    width: 100%;
+	text-align: left;
+    display: block;
+    text-indent: 0.5em;
+    font-size: 9pt;
+    padding-bottom: 4px;
+}
+div.add button { 
+    height: 20px;
+    text-transform: capitalize;
+    font-size: 9pt;
+    margin-left: 5px;
+}
+

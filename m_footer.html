@@ -1,0 +1,42 @@
+<!--footer>
+    <h2>▽ 접기</h2>
+    <ol>
+        <li>Add 클릭 시 새 레이어 생성</li>
+        <li>list 부분에 완료, 수정 버튼 생성해야함 </li>
+    </ol>
+</footer-->
+</div>
+<script>
+var gaJsHost = (("https:" == document.location.protocol) 
+             ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+    var pageTracker = _gat._getTracker("UA-6371409-5");
+    pageTracker._trackPageview();
+} catch(err) {}
+</script>
+</body>
+</html>
+
+<script>
+TODO.openDB(); 
+
+/*
+$('footer h2').click(function() { 
+    $('footer ol').slideToggle('slow', function() {
+        var text = $('footer h2').text();
+        $('footer h2').text(text == '▽ 접기' ? '△ 펼치기' : '▽ 접기');
+    });
+});
+*/
+
+$('button.add').click(function() { $('div.add').remove(); TODO.createForm(); });
+$('button.history').click(function() { 
+    TODO.removeList(); $('div.add').remove(); TODO.getList('history'); 
+});
+$('button.list').click(function() { 
+    TODO.removeList(); $('div.add').remove(); TODO.getList('all'); 
+});
+</script>

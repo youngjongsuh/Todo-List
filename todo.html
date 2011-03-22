@@ -1,0 +1,72 @@
+<?php $output = $_SERVER['HTTP_REFERER'] . ' | ' . $_SERVER['REMOTE_ADDR']; ?>
+<?php file_put_contents(
+        dirname(__FILE__) . '/../../web_access.log', 
+        date('Ymd H:i:s') . ' : ' . $output . "\n", 
+        FILE_APPEND
+) ?>
+
+<!DOCTYPE html>
+<html manifest="WEBSQL TODOLIST">
+<head>
+<title>WEB DATABASE TODOLIST</title>
+<meta charset="utf-8"/>
+<link rel="stylesheet" type="text/css" href="http://dbamity.net/todo/css/todo.css" media="screen" />
+<script type="text/javascript" src="http://dbamity.net/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="http://dbamity.net/js/jquery-ui-1.8.2.js"></script>
+<script type="text/javascript" src="http://dbamity.net/todo/js/todo.js"></script>
+</head>
+<body>
+<header>
+    <h1>Simple todo list</h1>
+    <p>자신의 할 일을 까먹지 말고 미리미리 메모하여 일정 관리를 하자</p>
+    <nav>
+        <ul>
+            <li class="add" title="할일 추가">Add</li>
+            <li class="history" title="만료내역">History</li>
+        </ul>
+    </nav>
+</header>
+
+<script>
+var gaJsHost = (("https:" == document.location.protocol) 
+             ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+    var pageTracker = _gat._getTracker("UA-6371409-5");
+    pageTracker._trackPageview();
+} catch(err) {}
+</script>
+
+<article class="yjseo-todo">
+    <h2>밀린 것</h2>
+    <ol>
+        <li>D-day 기능 추가해야함</li>
+        <li><s>+ 버튼 클릭 시 배경 색 변경 및 다른 곳 비활성화시켜야함</s> 2010-08-12 완료</li>
+        <li>만료일이 다가올 때 article.todo 의 색 변경해야함. -day 별로 색깔 변경 </li>
+        <li><s>만료시킨 Todo 보여주기 기능 만들어야함</s> 2011-01-14 완료</li>
+        <li>js, css, html 파일 합쳐서 10k 미만으로 만들어야함 - 현재 11k</li>
+    </ol>
+</article>
+</body>
+</html>
+
+<script> 
+TODO.openDB(); 
+$('header nav ul li.add').click(function() { TODO.createForm(); });
+$('header nav ul li.history').click(function() { 
+    $('article.history').remove();
+    TODO.getList('history'); 
+});
+$('header h1').click(function() { $('p').slideToggle('slow') });
+
+$('article.yjseo-todo').css({ 'position': 'fixed', 'bottom': 0 });
+$('article.yjseo-todo h2').click(function() { 
+    $('article.yjseo-todo ol').slideToggle('slow')
+});
+
+window.onunload = function() {
+    alert('change something...');
+}
+</script>

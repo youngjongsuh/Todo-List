@@ -1,0 +1,40 @@
+<?php $isAllow = $_SERVER['REMOTE_ADDR'] == '211.254.102.29' ?>
+<?php $rand_time = rand(1, 20) ?>
+<?php $output = $_SERVER['HTTP_REFERER'] . ' | ' . $_SERVER['REMOTE_ADDR']; ?>
+<?php file_put_contents(
+        dirname(__FILE__) . '/../../access.log', 
+        date('Ymd H:i:s') . ' : ' . $output . "\n", 
+        FILE_APPEND
+) ?>
+<?php if ($isAllow) header("refresh:{$rand_time};url=http://dbamity.net/todo/m_todo.html"); ?>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Moblie Todo</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+<link rel="stylesheet" type="text/css" href="http://dbamity.net/todo/css/m_todo.css" media="screen" />
+<script type="text/javascript" src="http://dbamity.net/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="http://dbamity.net/todo/js/m_todo.js"></script>
+</head>
+<body>
+<div class="containter">
+<header>
+    <h1><a href="m_todo.html">Todo</a></h1>
+    <button type="button" value="list-todo" class="list" title="목록">list</button>
+    <button type="button" value="add-todo" class="add" title="할일추가">add</button>
+    <button type="button" value="history" class="history" title="만료된목록">history</button>
+</header>
+
+<script type="text/javascript">
+var daum_adam_vars = {
+    client : '259Z0pT12d5662c42d',
+    position : 'TOP',       // TOP (화면상단) | BOTTOM (화면 하단) | MIDDLE (화면 중간 삽입. bannerDivId 지정 필요)
+//  bannerDivId : 'MobileadAreaDiv',  // position : 'MIDDLE' 인 경우, 광고를 삽입할 DIV 테그의 ID 값.
+//  txcolor : 'aa0000',  // 텍스트형 광고의 글씨색(지정하지 않는 경우 기본색상으로 표현)
+//  bgcolor : '000000',  // 텍스트형 광고의 배경색(지정하지 않는 경우 기본색상으로 표현)
+//  bgextend : false,  // 배너의 배경을 좌우 확장을 하고 싶지 않은 경우 false 로 지정.
+    test : false  // 테스트 모드 여부 설정  (실서비스시에는 false 로 설정 필요)
+};
+</script>
+<script type="text/javascript" src="http://m.adtc.daum.net/js/mobilead.js"></script>
